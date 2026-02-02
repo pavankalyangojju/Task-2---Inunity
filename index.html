@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List App</title>
+</head>
+<body>
+    <h2>Task 2</h2>
+
+    <h2>My To-Do List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button onclick="addTask()">Add Task</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        function addTask() {
+            var taskText = document.getElementById("taskInput").value;
+
+            if (taskText === "") {
+                alert("Please enter a task");
+                return;
+            }
+
+            var li = document.createElement("li");
+            li.innerText = taskText;
+
+            var removeBtn = document.createElement("button");
+            removeBtn.innerText = "Remove";
+            removeBtn.onclick = function () {
+                li.remove();
+            };
+
+            li.appendChild(removeBtn);
+
+            document.getElementById("taskList").appendChild(li);
+
+            document.getElementById("taskInput").value = "";
+        }
+    </script>
+
+</body>
+</html>
